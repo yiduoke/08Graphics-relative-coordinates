@@ -221,7 +221,7 @@ void parse_file ( char * filename,
       /* 	xvals[0], yvals[0], zvals[0]); */ 
       tmp = make_scale( xvals[0], yvals[0], zvals[0]);
       matrix_mult(peek(stakh), tmp);
-      matrix_copy(tmp, peek(stakh));
+      copy_matrix(tmp, peek(stakh));
     }//end scale
 
     else if ( strncmp(line, "move", strlen(line)) == 0 ) {
@@ -233,7 +233,7 @@ void parse_file ( char * filename,
       /* 	xvals[0], yvals[0], zvals[0]); */ 
       tmp = make_translate( xvals[0], yvals[0], zvals[0]);
       matrix_mult(peek(stakh), tmp);
-      matrix_copy(tmp, peek(stakh));
+      copy_matrix(tmp, peek(stakh));
     }//end translate
 
     else if ( strncmp(line, "rotate", strlen(line)) == 0 ) {
@@ -252,7 +252,7 @@ void parse_file ( char * filename,
         tmp = make_rotZ( theta );
 
       matrix_mult(peek(stakh), tmp);
-      matrix_copy(tmp, peek(stakh));
+      copy_matrix(tmp, peek(stakh));
     }//end rotate
 
     else if ( strncmp(line, "clear", strlen(line)) == 0 ) {
